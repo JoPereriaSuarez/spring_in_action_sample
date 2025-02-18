@@ -9,6 +9,14 @@ import jakarta.validation.constraints.Pattern;
 
 public class Order {
    
+    private long id;
+    public long getId(){
+        return id;
+    }
+    public void setId(long value){
+        id = value;
+    }
+
     @NotBlank(message="name is required")
     private String name;
     public String getName(){

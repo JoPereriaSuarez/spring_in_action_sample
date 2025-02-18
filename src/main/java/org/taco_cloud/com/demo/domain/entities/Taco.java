@@ -8,6 +8,14 @@ import javax.validation.constraints.Size;
 
 public class Taco {
     
+    private long id;
+    public long getId(){
+        return id;
+    }
+    public void setId(long value){
+        id = value;
+    }
+
     @NotNull
     @Size(min=5, message="the taco's name")
     private String name;
