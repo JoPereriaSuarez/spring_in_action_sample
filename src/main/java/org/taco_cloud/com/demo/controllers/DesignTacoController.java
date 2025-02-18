@@ -15,9 +15,8 @@ import org.taco_cloud.com.demo.domain.entities.Ingredient;
 import org.taco_cloud.com.demo.domain.entities.Ingredient.Type;
 import org.taco_cloud.com.demo.domain.entities.Taco;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-
-
 
 @Slf4j
 @Controller
@@ -43,7 +42,7 @@ public class DesignTacoController {
     }
 
     @PostMapping()
-    public String processDesign(@ModelAttribute("design")Taco taco, Errors errors) {
+    public String processDesign(@Valid @ModelAttribute("design")Taco taco, Errors errors) {
         if(errors.hasErrors())
             return "redirect:home";
 

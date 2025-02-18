@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.taco_cloud.com.demo.domain.entities.Order;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -24,8 +25,11 @@ public class OrderTacoController {
     }
 
     @PostMapping()
-    public String processOrder(@ModelAttribute("order") Order order, Errors errors) {
-        log.info("order submitted: "+order.getName());
+    public String processOrder(@Valid @ModelAttribute() Order order, Errors errors) {
+        if(errors.hasErrors())
+            return "orderForm";
+
+        log.info("order submitted: "+order);
         return "redirect:/";
     }
     
