@@ -1,13 +1,10 @@
 package org.taco_cloud.com.demo.domain.entities;
 
-import lombok.Data;
-
-@Data
 public class Ingredient {
     
     public static enum Type{
         WRAP, 
-        PROTIEN,
+        PROTEIN,
         VEGGIES,
         CHEESE,
         SAUCE,
